@@ -23,6 +23,15 @@ const reducerFn = (currentStatus, action) => {
     return status;
 }
 
+const Default_post = () => [{
+    id: Math.random(),
+    userId: 2,
+    title: "Vacation Trip",
+    message: "Enjoing Our vacation",
+    date: "02/04/2007",
+    tags: ['vacation', 'Trip'],
+    image: "/"
+}]
 
 // Normal Function
 
@@ -30,7 +39,7 @@ const PostListProvider = ({children}) => {
 
     const [postList, dispatch] = useReducer(reducerFn, [] , () => {
             const savedPosts = localStorage.getItem("localPosts");
-            return savedPosts ? JSON.parse(savedPosts) : null;
+            return savedPosts ? JSON.parse(savedPosts) : Default_post;
         });
 
         useEffect(() => {
