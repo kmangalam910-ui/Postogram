@@ -30,7 +30,7 @@ const PostListProvider = ({children}) => {
 
     const [postList, dispatch] = useReducer(reducerFn, [] , () => {
             const savedPosts = localStorage.getItem("localPosts");
-            return savedPosts ? JSON.parse(savedPosts) : DEFAULT_POSTS;
+            return savedPosts ? JSON.parse(savedPosts) : null;
         });
 
         useEffect(() => {
