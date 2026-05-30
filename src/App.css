@@ -35,3 +35,99 @@
 .post-title::-webkit-calendar-picker-indicator {
   filter: invert(1) opacity(0.5);
 }
+
+/* ─── Hero Section ──────────────────────────────────────── */
+.hero-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 24px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+  animation: fadeInUp 0.6s ease both;
+}
+
+/* ─── Create Post Form Grid ─────────────────────────────── */
+.create-post-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.create-post-date-field {
+  max-width: calc(50% - 10px);
+}
+
+/* ─── Login Form Overlay ────────────────────────────────── */
+.login-form-overlay {
+  position: fixed;
+  right: 24px;
+  top: 80px;
+  z-index: 300;
+}
+
+/* ─── Responsive: Tablet / Mobile ──────────────────────── */
+@media (max-width: 768px) {
+  /* Hero: single column, reduced padding */
+  .hero-section {
+    grid-template-columns: 1fr;
+    padding: 40px 16px 32px;
+    gap: 36px;
+  }
+
+  /* Hide the hero image on very small screens to save space */
+  .hero-image-col {
+    display: none;
+  }
+
+  /* Create post form: single column */
+  .create-post-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Date field: full width */
+  .create-post-date-field {
+    max-width: 100%;
+  }
+
+  /* Login form: full-width, centered */
+  .login-form-overlay {
+    right: 0;
+    left: 0;
+    top: 64px;
+    padding: 0 12px;
+  }
+
+  /* PostContainerList: reduce padding */
+  .posts-section-inner {
+    padding: 0 12px 60px;
+  }
+
+  /* CreatePost / locked section: reduce padding */
+  .create-post-section {
+    padding: 0 12px;
+    margin: 24px auto 60px;
+  }
+
+  /* Card body padding on mobile */
+  .create-post-card-header {
+    padding: 20px 16px 16px !important;
+  }
+  .create-post-card-body {
+    padding: 20px 16px 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Tighten hero even more on phones */
+  .hero-section {
+    padding: 32px 12px 24px;
+    gap: 24px;
+  }
+
+  /* Header: tighter horizontal padding */
+  .header-inner {
+    padding: 0 12px;
+  }
+}

@@ -3,18 +3,7 @@ import PostImage from "../assets/Post.webp";
 
 const Hero = () => {
     return (
-        <section style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '72px 24px 48px',
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            alignItems: 'center',
-            gap: '64px',
-            animation: 'fadeInUp 0.6s ease both',
-        }}
-        className="max-md:grid-cols-1"
-        >
+        <section className="hero-section">
             {/* Left — Text */}
             <div>
                 {/* Pill badge */}
@@ -68,7 +57,7 @@ const Hero = () => {
 
                 {/* Stats */}
                 <div style={{
-                    display: 'flex', gap:'32px', marginTop:'48px',
+                    display: 'flex', flexWrap: 'wrap', gap:'24px', marginTop:'48px',
                     paddingTop: '32px',
                     borderTop: '1px solid rgba(255,255,255,0.06)',
                 }}>
@@ -82,7 +71,7 @@ const Hero = () => {
             </div>
 
             {/* Right — Image */}
-            <div style={{ position:'relative' }}>
+            <div className="hero-image-col" style={{ position:'relative' }}>
                 {/* Glow blob */}
                 <div style={{
                     position:'absolute',

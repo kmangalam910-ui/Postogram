@@ -25,13 +25,10 @@ const LoginForm = ({ showLoginSection, loginDetails, handleLogin }) => {
     };
 
     return (
-        <div style={{
-            display: showLoginSection === 'block' ? 'block' : 'none',
-            position: 'fixed',
-            right: '24px',
-            top: '80px',
-            zIndex: 300,
-        }}>
+        <div
+            className="login-form-overlay"
+            style={{ display: showLoginSection === 'block' ? 'block' : 'none' }}
+        >
             <StyledWrapper>
                 <div className="login-card">
                     {/* Top gradient bar */}
