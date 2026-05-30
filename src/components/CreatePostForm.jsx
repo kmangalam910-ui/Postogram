@@ -223,7 +223,7 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
 
                 {/* Form Body */}
                 <form onSubmit={PostFn} style={{ padding: '28px 32px 32px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }}>
                         <FieldWrapper label="User Name" icon={<HiUser />}>
                             <input ref={userNameElement} type="text" placeholder={user ? user.name : 'Enter username'} id="user-id" className="post-title" />
                         </FieldWrapper>
