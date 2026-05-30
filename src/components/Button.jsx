@@ -1,22 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = () => {
+const Button = ({ onClick }) => {
   return (
     <StyledWrapper>
-      <div>
-        <button className="animated-button">
-          <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-          </svg>
-          <span className="text">Explore Posts</span>
-          <span className="circle" />
-          <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
-          </svg>
-        </button>
-        <br /><br />
-      </div>
+      <button className="animated-button" onClick={onClick}>
+        <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+        </svg>
+        <span className="text">Explore Posts</span>
+        <span className="circle" />
+        <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+        </svg>
+      </button>
     </StyledWrapper>
   );
 }
@@ -27,44 +24,37 @@ const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 16px 36px;
-    border: 4px solid;
-    border-color: transparent;
-    font-size: 16px;
-    background-color: inherit;
-    border-radius: 100px;
+    padding: 13px 28px;
+    border: 1.5px solid rgba(124, 58, 237, 0.5);
+    font-size: 15px;
+    background: transparent;
+    border-radius: 12px;
     font-weight: 600;
-    color: rgb(47, 248, 255);
-    box-shadow: 0 0 0 2px rgb(47, 255, 238);
+    font-family: 'Inter', sans-serif;
+    color: #A78BFA;
     cursor: pointer;
     overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    letter-spacing: 0.01em;
   }
 
   .animated-button svg {
     position: absolute;
-    width: 24px;
-    fill: rgb(47, 255, 255);
+    width: 22px;
+    fill: #A78BFA;
     z-index: 9;
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  .animated-button .arr-1 {
-    right: 16px;
-  }
-
-  .animated-button .arr-2 {
-    left: -25%;
-  }
+  .animated-button .arr-1 { right: 16px; }
+  .animated-button .arr-2 { left: -25%; }
 
   .animated-button .circle {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background-color: rgb(47, 224, 255);
+    width: 20px; height: 20px;
+    background: linear-gradient(135deg, #7C3AED, #06B6D4);
     border-radius: 50%;
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -78,44 +68,26 @@ const StyledWrapper = styled.div`
   }
 
   .animated-button:hover {
-    box-shadow: 0 0 0 12px transparent;
-    color: #212121;
+    box-shadow: 0 0 0 12px transparent, 0 8px 30px rgba(124,58,237,0.3);
+    color: #ffffff;
     border-radius: 12px;
+    border-color: transparent;
   }
 
-  .animated-button:hover .arr-1 {
-    right: -25%;
-  }
-
-  .animated-button:hover .arr-2 {
-    left: 16px;
-  }
-
-  .animated-button:hover .text {
-    transform: translateX(12px);
-  }
-
-  .animated-button:hover svg {
-    fill: #212121;
-  }
+  .animated-button:hover .arr-1 { right: -25%; }
+  .animated-button:hover .arr-2 { left: 16px; }
+  .animated-button:hover .text  { transform: translateX(12px); }
+  .animated-button:hover svg    { fill: #ffffff; }
 
   .animated-button:active {
     scale: 0.95;
-    box-shadow: 0 0 0 4px greenyellow;
+    box-shadow: 0 0 0 4px rgba(124,58,237,0.3);
   }
 
   .animated-button:hover .circle {
-    width: 220px;
-    height: 220px;
+    width: 220px; height: 220px;
     opacity: 1;
-  }`;
-
-    const ShareBtn = () => {
-        return <>
-
-        </>
-    }
-
-    
+  }
+`;
 
 export default Button;

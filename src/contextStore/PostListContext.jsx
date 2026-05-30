@@ -23,14 +23,14 @@ const reducerFn = (currentStatus, action) => {
     return status;
 }
 
-const Default_post = () => [{
+const defaultPost = () => [{
     id: Math.random(),
-    userId: 2,
-    title: "Vacation Trip",
-    message: "Enjoing Our vacation",
-    date: "02/04/2007",
-    tags: ['vacation', 'Trip'],
-    image: "/"
+    userId: "Mangalam",
+    title: "Century wishes",
+    message: "Sanju Samson made history on April 23, 2026, by becoming the first-ever Chennai Super Kings (CSK) batter to score a century against the Mumbai Indians (MI). His unbeaten 101 off 54 balls featured 10 fours and 6 sixes. This masterclass drove CSK to a massive 207/6 at the Wankhede Stadium, eventually securing a dominant 103-run victory",
+    date: "April 23, 2026",
+    tags: ['CSK', 'Sanju Samson', 'Century'],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYhfG1RT4XSOmTrZhlCOViuo4HX8ECEt1ynQ&s"
 }]
 
 // Normal Function
@@ -39,7 +39,12 @@ const PostListProvider = ({children}) => {
 
     const [postList, dispatch] = useReducer(reducerFn, [] , () => {
             const savedPosts = localStorage.getItem("localPosts");
-            return savedPosts ? JSON.parse(savedPosts) : Default_post;
+            try {
+                const parsed = savedPosts ? JSON.parse(savedPosts) : null;
+                return Array.isArray(parsed) ? parsed : defaultPost();
+            } catch {
+                return defaultPost();
+            }
         });
 
         useEffect(() => {

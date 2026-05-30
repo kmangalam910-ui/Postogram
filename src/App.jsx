@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react'
+import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css'
@@ -17,6 +17,12 @@ function App() {
   let [selectedTab, setSelectedTab] = useState('Home')
   let [showLoginSection, setShowLoginSection] = useState('hidden')
 
+  // user: null = not logged in | { name, email, photo } = logged in
+  let [user, setUser] = useState(null)
+
+  // Track how many posts a guest (not logged in) has made
+  let [guestPostCount, setGuestPostCount] = useState(0)
+
   const displayShowFn = () => {
       setDisplayState('d-flex')
   }
@@ -30,16 +36,33 @@ function App() {
     setShowLoginSection(value)
   }
 
+  // Called by LoginForm on submit
+  const handleLogin = (userData) => {
+    setUser(userData)
+    setShowLoginSection('hidden')
+  }
+
+  // Called by Header profile dropdown logout
+  const handleLogout = () => {
+    setUser(null)
+  }
+
   return (
     <>
       <PostListProvider>
         <div className='App-container'>
           <Sidebar displayState={displayState} setSelectedTab={setSelectedTab} displayHideFn={displayHideFn} selectedTab={selectedTab}></Sidebar>
-          <Header displayShowFn={displayShowFn} setSelectedTab={setSelectedTab} loginDetails={loginDetails}></Header>
-          <div className='px-5'>
-            <LoginForm showLoginSection={showLoginSection} loginDetails={loginDetails}></LoginForm>
+          <Header
+            displayShowFn={displayShowFn}
+            setSelectedTab={setSelectedTab}
+            loginDetails={loginDetails}
+            user={user}
+            handleLogout={handleLogout}
+          ></Header>
+          <div>
+            <LoginForm showLoginSection={showLoginSection} loginDetails={loginDetails} handleLogin={handleLogin}></LoginForm>
             {selectedTab === 'Home' && <Hero></Hero>}
-            {selectedTab === 'Home' ? <PostContainerList></PostContainerList> : <CreatePost setSelectedTab={setSelectedTab}></CreatePost>}
+            {selectedTab === 'Home' ? <PostContainerList></PostContainerList> : <CreatePost setSelectedTab={setSelectedTab} user={user} guestPostCount={guestPostCount} onGuestPost={() => setGuestPostCount(c => c + 1)} loginDetails={loginDetails}></CreatePost>}
             <Footer></Footer>
           </div>
         </div>
