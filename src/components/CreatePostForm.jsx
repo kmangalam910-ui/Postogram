@@ -76,10 +76,7 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
 
     if (isLocked) {
         return (
-            <section className="create-post-section" style={{
-                maxWidth: '720px', margin: '40px auto 80px',
-                animation: 'fadeInUp 0.5s ease both',
-            }}>
+            <section className="create-post-section">
                 <div style={{
                     background: 'rgba(18,18,30,0.9)',
                     border: '1px solid rgba(239,68,68,0.2)',
@@ -90,7 +87,7 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
                     {/* Top bar — red to signal limit */}
                     <div style={{ height: '4px', background: 'linear-gradient(90deg, #EF4444, #F97316, #7C3AED)' }} />
 
-                    <div className="create-post-card-body" style={{
+                    <div className="create-post-locked-body" style={{
                         display: 'flex', flexDirection: 'column',
                         alignItems: 'center', textAlign: 'center', gap: '20px',
                     }}>
@@ -159,10 +156,7 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
 
     // ── Normal Create Post Form ───────────────────────────────────────────
     return (
-        <section className="create-post-section" style={{
-            maxWidth: '720px', margin: '40px auto 80px',
-            animation: 'fadeInUp 0.5s ease both',
-        }}>
+        <section className="create-post-section">
             {/* Guest warning banner (1 post remaining) */}
             {!user && guestPostCount === 0 && (
                 <div style={{
@@ -306,7 +300,7 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
                         </FieldWrapper>
                     </div>
 
-                    <div style={{ marginTop: '28px', display: 'flex', gap: '12px' }}>
+                    <div className="create-post-buttons">
                         <button type="submit" className="btn-accent" style={{ padding: '13px 32px', fontSize: '15px', borderRadius: '12px' }}>
                             Publish Post
                         </button>
