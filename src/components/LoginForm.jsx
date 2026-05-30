@@ -161,7 +161,9 @@ const LoginForm = ({ showLoginSection, loginDetails, handleLogin }) => {
 
 const StyledWrapper = styled.div`
   .login-card {
-    width: 360px;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
     background: rgba(12, 12, 22, 0.97);
     border: 1px solid rgba(255,255,255,0.09);
     border-radius: 24px;

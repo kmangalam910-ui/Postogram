@@ -76,9 +76,9 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
 
     if (isLocked) {
         return (
-            <section style={{
+            <section className="create-post-section" style={{
                 maxWidth: '720px', margin: '40px auto 80px',
-                padding: '0 24px', animation: 'fadeInUp 0.5s ease both',
+                animation: 'fadeInUp 0.5s ease both',
             }}>
                 <div style={{
                     background: 'rgba(18,18,30,0.9)',
@@ -90,8 +90,7 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
                     {/* Top bar — red to signal limit */}
                     <div style={{ height: '4px', background: 'linear-gradient(90deg, #EF4444, #F97316, #7C3AED)' }} />
 
-                    <div style={{
-                        padding: '60px 32px',
+                    <div className="create-post-card-body" style={{
                         display: 'flex', flexDirection: 'column',
                         alignItems: 'center', textAlign: 'center', gap: '20px',
                     }}>
@@ -160,9 +159,9 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
 
     // ── Normal Create Post Form ───────────────────────────────────────────
     return (
-        <section style={{
+        <section className="create-post-section" style={{
             maxWidth: '720px', margin: '40px auto 80px',
-            padding: '0 24px', animation: 'fadeInUp 0.5s ease both',
+            animation: 'fadeInUp 0.5s ease both',
         }}>
             {/* Guest warning banner (1 post remaining) */}
             {!user && guestPostCount === 0 && (
@@ -199,8 +198,7 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
                 <div style={{ height: '4px', background: 'linear-gradient(90deg,#7C3AED,#9D5BFF,#06B6D4)' }} />
 
                 {/* Card Header */}
-                <div style={{
-                    padding: '28px 32px 24px',
+                <div className="create-post-card-header" style={{
                     borderBottom: '1px solid rgba(255,255,255,0.06)',
                     display: 'flex', alignItems: 'center', gap: '12px',
                 }}>
@@ -222,8 +220,8 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
                 </div>
 
                 {/* Form Body */}
-                <form onSubmit={PostFn} style={{ padding: '28px 32px 32px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }}>
+                <form onSubmit={PostFn} className="create-post-card-body">
+                    <div className="create-post-grid">
                         <FieldWrapper label="User Name" icon={<HiUser />}>
                             <input ref={userNameElement} type="text" placeholder={user ? user.name : 'Enter username'} id="user-id" className="post-title" />
                         </FieldWrapper>
@@ -302,7 +300,7 @@ const CreatePost = ({ setSelectedTab, user, guestPostCount, onGuestPost, loginDe
                         </FieldWrapper>
                     </div>
 
-                    <div style={{ marginTop: '20px', maxWidth: 'calc(50% - 10px)' }}>
+                    <div className="create-post-date-field" style={{ marginTop: '20px' }}>
                         <FieldWrapper label="Post Date" icon={<HiCalendar />}>
                             <input ref={DateElement} type="date" id="date" className="post-title" />
                         </FieldWrapper>

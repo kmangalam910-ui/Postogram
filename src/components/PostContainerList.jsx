@@ -7,11 +7,15 @@ const PostContainerList = () => {
     const {postList} = useContext(PostListContext);
 
     return (
-        <section id="posts-section" style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '0 24px 80px',
-        }}>
+        <section
+            id="posts-section"
+            className="posts-section-inner"
+            style={{
+                maxWidth: '1200px',
+                margin: '0 auto',
+                padding: '0 24px 80px',
+            }}
+        >
             {/* Section header */}
             <div style={{
                 display: 'flex', alignItems: 'center', gap: '12px',

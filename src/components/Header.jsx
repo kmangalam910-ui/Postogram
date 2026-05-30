@@ -31,11 +31,14 @@ const Header = ({ displayShowFn, setSelectedTab, loginDetails, user, handleLogou
             borderBottom: '1px solid rgba(255,255,255,0.06)',
             boxShadow: '0 4px 32px rgba(0,0,0,0.4)',
         }}>
-            <div style={{
-                maxWidth: '1200px', margin: '0 auto', padding: '0 24px',
-                height: '64px', display: 'flex', alignItems: 'center',
-                justifyContent: 'space-between', gap: '16px',
-            }}>
+            <div
+                className="header-inner"
+                style={{
+                    maxWidth: '1200px', margin: '0 auto', padding: '0 24px',
+                    height: '64px', display: 'flex', alignItems: 'center',
+                    justifyContent: 'space-between', gap: '16px',
+                }}
+            >
                 {/* Logo */}
                 <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', flexShrink: 0 }}>
                     <div style={{
